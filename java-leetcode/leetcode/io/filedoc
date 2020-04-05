@@ -1,0 +1,30 @@
+
+字节流：
+inputstream ,outputstream
+
+字符流：
+reader ,writer
+
+#####
+文件流：
+FileinputStream 负责读/ Fileoutstream 负责写,  文件字节输入流/输出流
+Filereader /Filewriter
+
+
+fileinputstream : //todo byte[] byte[]:  bytes = new byte[1024]; // bytes.length
+public int read(byte[] r) throws IOException{}
+这个方法从输入流读取r.length长度的字节。返回读取的字节数。如果是文件结尾则返回-1。
+
+fileoutput stream: //todo byte[]
+public void write(byte[] w)
+把指定数组中w.length长度的字节写到OutputStream中。
+
+read(byte b[], int off, int len)
+第一个参数是存放即将读出来的数据的字节数组。
+第二个参数是偏移量 是指接收数据的数组byte[] b （或叫缓冲区）的偏移量，并不是数据流的偏移量。
+读取3个字节（第三个参数）的数据，存放在bytes数组b中，存放在数组中的什么位置呢？那就得看偏移量off了,
+off就表示存放在数组中下标为2的位置开始，数据依次往后展开。举个栗子：
+假设读取了两个字节的数据，就放在数组的3、4号坑（数组是从0开始的），假设读取了3个字节的数据，就放在数组的3、4、5号坑…
+总结：Java IO流中的偏移量是指接收数据的数组byte[] b（或叫缓冲区）的偏移量，并不是数据流的偏移量。
+
+第三个参数是要读取的长度。
